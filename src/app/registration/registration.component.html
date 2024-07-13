@@ -1,0 +1,16 @@
+<h2>Register</h2>
+<form [formGroup]="registrationForm" (ngSubmit)="onRegister()">
+  <label for="email">Email:</label>
+  <input id="email" formControlName="email" type="email" />
+  <div *ngIf="registrationForm.controls['email'].invalid && registrationForm.controls['email'].touched">
+    Invalid email
+  </div>
+
+  <label for="password">Password:</label>
+  <input id="password" formControlName="password" type="password" />
+  <div *ngIf="registrationForm.controls['password'].invalid && registrationForm.controls['password'].touched">
+    Password is required
+  </div>
+
+  <button type="submit" [disabled]="registrationForm.invalid">Register</button>
+</form>

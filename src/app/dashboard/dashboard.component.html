@@ -1,0 +1,33 @@
+<h2>Dashboard</h2>
+<button (click)="logout()">Logout</button>
+
+<!-- Add Application Form -->
+<form [formGroup]="applicationForm" (ngSubmit)="onSubmit()">
+  <!-- Form Fields -->
+</form>
+
+<!-- Application List -->
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Mobile</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let app of applications">
+      <td>{{ app.name }}</td>
+      <td>{{ app.mobile }}</td>
+      <td>{{ app.email }}</td>
+      <td>
+        <button (click)="editApplication(app)">Edit</button>
+        <button (click)="deleteApplication(app.id)">Delete</button>
+        <button (click)="downloadApplication(app.id)">Download</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<button (click)="downloadAllApplications()">Download All (Excel)</button>
